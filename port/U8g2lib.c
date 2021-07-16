@@ -4,7 +4,7 @@ static int i2c_device;
 static const char i2c_bus[] = "/dev/i2c-1";
 
 static int spi_device;
-static const char spi_bus[] = "/dev/spidev0.0";
+static const char spi_bus[] = "/dev/spidev1.0";
 
 uint8_t u8x8_arm_linux_gpio_and_delay(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, void *arg_ptr)
 {
@@ -318,6 +318,7 @@ uint8_t u8x8_byte_arm_linux_hw_spi(u8x8_t *u8x8, uint8_t msg, uint8_t arg_int, v
                 case 2: internal_spi_mode |= SPI_CPOL; break;
                 case 3: internal_spi_mode |= SPI_CPOL; internal_spi_mode |= SPI_CPHA; break;
             }
+	    internal_spi_mode = 0;
             // printf("SPI Device Mode Set\n");
 
             spi_device = openSPIDevice(spi_bus, internal_spi_mode, 8, 500000);
