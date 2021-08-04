@@ -14,7 +14,8 @@ int main(void)
     u8g2_t u8g2;
 
     // Initialization
-    u8g2_Setup_st7920_s_128x64_f(&u8g2, U8G2_R0, u8x8_byte_arm_linux_hw_spi, u8x8_arm_linux_gpio_and_delay);
+    //u8g2_Setup_st7920_s_128x64_f(&u8g2, U8G2_R0, u8x8_byte_arm_linux_hw_spi, u8x8_arm_linux_gpio_and_delay);
+    u8g2_Setup_st7920_s_256x32_f(&u8g2, U8G2_R0, u8x8_byte_arm_linux_hw_spi, u8x8_arm_linux_gpio_and_delay);
     //u8g2_Setup_ssd1306_128x64_noname_f(&u8g2, U8G2_R0, u8x8_byte_arm_linux_hw_spi, u8x8_arm_linux_gpio_and_delay);
     //u8x8_SetPin(u8g2_GetU8x8(&u8g2), U8X8_PIN_DC, OLED_SPI_PIN_DC);
     //u8x8_SetPin(u8g2_GetU8x8(&u8g2), U8X8_PIN_RESET, OLED_SPI_PIN_RES);
@@ -28,10 +29,10 @@ int main(void)
     u8g2_ClearBuffer(&u8g2);
 
     u8g2_SetFont(&u8g2, u8g2_font_ncenB08_tr);
-    u8g2_DrawStr(&u8g2, 1, 18, "I'm Eagle using SPI1");
+    u8g2_DrawStr(&u8g2, 1, 18, "I'm Eagle using SPI1 very long string one");
 
-    u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);
-    u8g2_DrawGlyph(&u8g2, 112, 56, 0x2603 );
+//   u8g2_SetFont(&u8g2, u8g2_font_unifont_t_symbols);
+//    u8g2_DrawGlyph(&u8g2, 1, 40, 0x2603 );
 
     u8g2_SendBuffer(&u8g2);
 
